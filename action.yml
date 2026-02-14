@@ -1,9 +1,10 @@
 name: "Bark Action"
 description: "An action for bark"
-author: "Yuanhao Ji <jiyuanhao@apache.org>"
+author: "Yuanhao Ji "
 branding:
   icon: "message-circle"
   color: "red"
+
 inputs:
   key:
     description: Secret key
@@ -32,12 +33,16 @@ inputs:
   copy:
     description: Content copied to clipboard
     required: false
+  group:
+    description: Group name for Bark
+    required: false
   onFailOnly:
     description: Whether to send message only on fail
     required: false
   jobStatus:
     description: Status of the job
     required: false
+
 runs:
   using: "composite"
   steps:
@@ -54,5 +59,6 @@ runs:
         INPUT_URL: ${{ inputs.url }}
         INPUT_AUTOMATICALLY_COPY: ${{ inputs.automaticallyCopy }}
         INPUT_COPY: ${{ inputs.copy }}
+        INPUT_GROUP: ${{ inputs.group }}
         INPUT_ON_FAIL_ONLY: ${{ inputs.onFailOnly }}
         INPUT_JOB_STATUS: ${{ inputs.jobStatus }}
